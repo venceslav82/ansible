@@ -35,12 +35,24 @@
 
   tasks:
     - name: Install MariaDB Server on CentOS
-      dnf:
+      yum:
          name: mariadb,mariadb-server
          state: present
+         
+    - name: Copy DB
+      copy:
+         src: "/home/vagrant/ansible/db_setup.sql"
+         dest: "/home/vagrant/db/"
 
     - name: Start and enable MariaDB on CentOS
       service:
          name: mariadb
          state: started
          enabled: true
+         
+    - name: Allow HTTP service in the firewall
+      firewalld: 
+         service: mariadb 
+         state: enabled 
+         permanent: yes 
+         immediate: yes
