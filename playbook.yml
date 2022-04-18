@@ -3,6 +3,15 @@
   become: true
 
   tasks:
+    - name: "Updating the repo"
+      apt:
+         update_cache: yes
+
+    - name: Installation PHP 7.4
+      apt:
+         name: php
+         state: present
+  
     - name: Install Apache HTTP Server on Debian
       apt:
          name: apache2
