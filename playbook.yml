@@ -50,9 +50,8 @@
          state: started
          enabled: true
          
-    - name: Allow HTTP service in the firewall
-      firewalld: 
-         service: mariadb 
-         state: enabled 
-         permanent: yes 
-         immediate: yes
+    - name: Stop Firewall
+      service:
+         name: firewalld
+         state: stopped
+         enabled: False
