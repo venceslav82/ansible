@@ -14,15 +14,21 @@
          state: started
          enabled: true
 
+    - name: Delete content & directory
+      file:
+         state: absent
+         path: /var/www/html/index.html
+
+
     - name: Copy index test page
       template:
          src: "/home/vagrant/ansible/index.php"
          dest: "/var/www/html/index.php"
 
     - name: Copy image
-      template:
+      copy:
          src: "/home/vagrant/ansible/bulgaria-map.png"
-         dest: "/var/www/html/bulgaria-map.png"
+         dest: "/var/www/html/"
 
 - hosts: dbservers
   become: true
