@@ -16,12 +16,12 @@
 
     - name: Copy index test page
       template:
-         src: "/home/vagrant/index.php"
+         src: "/home/vagrant/ansible/index.php"
          dest: "/var/www/html/index.php"
 
     - name: Copy image
       template:
-         src: "/home/vagrant/bulgaria-map.png"
+         src: "/home/vagrant/ansible/bulgaria-map.png"
          dest: "/var/www/html/bulgaria-map.png"
 
 - hosts: dbservers
