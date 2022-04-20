@@ -45,7 +45,7 @@
   tasks:
     - name: Install MariaDB Server on CentOS
       yum:
-         name: mariadb,mariadb-server
+         name: mariadb,mariadb-server,python3-PyMySQL
          state: present
          
     - name: Copy DB
