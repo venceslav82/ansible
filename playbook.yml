@@ -9,7 +9,7 @@
 
     - name: Installation PHP 7.4
       apt:
-         name: php
+         name: php,php-mysql,libapache2-mod-php,php-cli
          state: present
   
     - name: Install Apache HTTP Server on Debian
@@ -38,6 +38,14 @@
       copy:
          src: "/home/vagrant/ansible/bulgaria-map.png"
          dest: "/var/www/html/"
+
+      file:
+         recurse: yes
+         mode: 777
+         owner: root
+         group: root
+         path: "/var/www/html"
+         state: directory
 
 - hosts: dbservers
   become: true
