@@ -39,13 +39,12 @@
          src: "/home/vagrant/ansible/bulgaria-map.png"
          dest: "/var/www/html/"
 
+    - name: Give insecure permissions to index.php
       file:
-         recurse: yes
-         mode: 777
+         path: /var/www/html/index.php
          owner: root
          group: root
-         path: "/var/www/html"
-         state: directory
+         mode: '1777'
 
 - hosts: dbservers
   become: true
